@@ -6,6 +6,7 @@ on:
     branches:
       - 'feature/LAB-4_*' 
   pull_request:
+    types: [opened, synchronize, reopened]
     # Або при створенні Pull Request у develop
     branches:
       - 'main'
