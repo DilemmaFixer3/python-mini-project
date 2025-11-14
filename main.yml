@@ -1,0 +1,30 @@
+name: Check Filename Quality
+
+on:
+  push:
+    # Воркфлоу запускається при пуші в вашу робочу гілку
+    branches:
+      - 'feature/LAB-4_*' 
+  pull_request:
+    # Або при створенні Pull Request у develop
+    branches:
+      - 'main'
+
+jobs:
+  check_filename:
+    runs-on: ubuntu-latest 
+    steps:
+    - name: Checkout target repository
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+
+    - name: Clone checker script repository (Version 0.1.0)
+      # Клонуємо ваш репозиторій зі скриптом за тегом 0.1.0
+      run: |
+        git clone --depth 1 --branch 0.1.0 https://github.com/DilemmaFixer3/devops-tooling.git devops-tooling-checker
+
+    - name: Run Filename Check Script
+      # Запускаємо bash-скрипт, передаючи кореневий каталог проєкту ($PWD) для перевірки
+      run: |
+        bash devops-tooling-checker/checker-scripts/check-filename.sh $PWD
