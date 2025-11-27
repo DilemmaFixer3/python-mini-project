@@ -3,15 +3,15 @@ name: Check Filename Quality
 on:
   push:
     branches:
-      - 'feature/LAB-4_*' 
+      - 'feature/LAB-4_*'
   pull_request:
     types: [opened, synchronize, reopened]
     branches:
-      - 'main' 
+      - 'main' # Змінено на main для більшої сумісності з форками
 
 jobs:
   check_filename:
-    runs-on: ubuntu-latest 
+    runs-on: ubuntu-latest
     steps:
     - name: Checkout target repository
       uses: actions/checkout@v4
