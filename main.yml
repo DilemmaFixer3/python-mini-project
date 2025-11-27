@@ -20,7 +20,7 @@ jobs:
 
     - name: Clone checker script repository (Version 0.1.0)
       run: |
-        git clone --depth 1 --branch 0.1.5 https://github.com/DilemmaFixer3/devops-tooling.git devops-tooling-checker
+        git clone --depth 1 --branch 0.1.6 https://github.com/DilemmaFixer3/devops-tooling.git devops-tooling-checker
 
     - name: Run Filename Check Script
       run: |
